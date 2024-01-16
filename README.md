@@ -46,18 +46,31 @@ sudo apt update
 sudo apt install python3-pip
 ```
 
-```pip3 install awscli --upgrade --user```
-```aws --version```
-```aws configure```
+```bash 
+pip3 install awscli --upgrade --user
+```
+```bash
+aws --version
+```
+```bash
+aws configure
+```
 
 ##EKS creation using terraform 
 clone the github repo and run 
-```terraform plan``` 
+```bash 
+terraform plan
+``` 
 followed by 
-```terraform apply```
+```bash 
+terraform apply
+```
 Now the cluster is created.
 
 ##Creating  Pods and Deployments
-run ```kubectl apply -f path_to_deployment_file```
+run 
+```bash 
+kubectl apply -f path_to_deployment_file
+```
 
 now the environment is set up and the applications will be live.
