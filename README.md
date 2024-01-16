@@ -29,10 +29,10 @@ you can install the terraform from the following link
 [Visit official site](https://github.com]https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 
 ## Docker Installation
-'''bash
+```bash
 sudo apt update
 sudo apt install docker.io
-'''
+```
 
 ## Kubectl configuratio
 
@@ -41,20 +41,20 @@ you can install kubectl from the official website link given below, based on you
 
 ## AWSCLI
 
-'''bash
+```bash
 sudo apt update
 sudo apt install python3-pip
-'''
+```
 
-'pip3 install awscli --upgrade --user'
-'aws --version'
-'aws configure'
+```pip3 install awscli --upgrade --user```
+```aws --version```
+```aws configure```
 
 ##EKS creation using terraform 
-clone the github repo and run 'terraform plan' followed by 'terraform apply'
+clone the github repo and run ```terraform plan``` followed by `terraform apply`
 Now the cluster is created.
 
 ##Creating  Pods and Deployments
-run 'kubectl apply -f path_to_deployment_file'
+run ```kubectl apply -f path_to_deployment_file```
 
 now the environment is set up and the applications will be live.
