@@ -51,7 +51,10 @@ sudo apt install python3-pip
 ```aws configure```
 
 ##EKS creation using terraform 
-clone the github repo and run ```terraform plan``` followed by `terraform apply`
+clone the github repo and run 
+```terraform plan``` 
+followed by 
+```terraform apply```
 Now the cluster is created.
 
 ##Creating  Pods and Deployments
