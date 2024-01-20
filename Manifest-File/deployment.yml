@@ -12,6 +12,8 @@ spec:
       labels:
         app: quizz-app
     spec:
+      nodeSelector:
+        app: quizz-app
       containers:
       - name: quiz-cont
         image: steja8494/quizz_app
@@ -34,6 +36,8 @@ spec:
       labels:
         app: weather-app
     spec:
+      nodeSelector:
+        app: weather-app
       containers:
       - name: weather-cont
         image: steja8494/react_weather_app
