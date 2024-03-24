@@ -1,22 +1,31 @@
-resource "aws_eks_node_group" "eks-node-group" {
-  cluster_name    = aws_eks_cluster.eks-cluster.name
-  node_group_name = var.eksnode-group-name
-  node_role_arn   = aws_iam_role.NodeGroupRole.arn
-  subnet_ids      = [aws_subnet.subnet.id, aws_subnet.public-subnet2.id]
+resource "aws_iam_role" "EKSClusterRole" {
+  name = "EKSClusterRole"
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
+        Principal = {
+          Service = "eks.amazonaws.com"
+        }
+      },
+    ]
+  })
+}
 
-
-  scaling_config {
-    desired_size = 2
-    max_size     = 3
-    min_size     = 1
-  }
-
-    instance_types = ["t2.medium"]
-    capacity_type  = "ON_DEMAND"
-
-  depends_on = [
-    aws_iam_role_policy_attachment.AmazonEKSWorkerNodePolicy,
-    aws_iam_role_policy_attachment.AmazonEC2ContainerRegistryReadOnly,
-    aws_iam_role_policy_attachment.AmazonEKS_CNI_Policy
-  ]
+resource "aws_iam_role" "NodeGroupRole" {
+  name = "EKSNodeGroupRole"
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
+        Principal = {
+          Service = "ec2.amazonaws.com"
+        }
+      },
+    ]
+  })
 }
