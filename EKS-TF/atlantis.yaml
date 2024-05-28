@@ -1,0 +1,20 @@
+version: 3
+
+projects:
+  - name: main
+    dir: .
+    workspace: default
+    autoplan:
+      enabled: false
+    workflow: approval
+
+workflows:
+  approval:
+    plan:
+      steps:
+        - init
+        - plan
+    apply:
+      steps:
+        - apply
+
