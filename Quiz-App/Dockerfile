@@ -16,3 +16,4 @@ FROM node:14-alpine
 COPY --from=base /app/quizzapp ./
 EXPOSE 3001
 ENTRYPOINT ["npm","start"]
+
